@@ -1,0 +1,33 @@
+#:kivy 1.9.1
+
+<GT>: # Name of the class in main
+    label_widget: my_custom_label
+    #graph_widget: my_graph # attempt to create a custom widget for graphs
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        RelativeLayout:
+            # I would like to replace red Button with a matplolib graph in the top row
+            plt:
+                #id: my_graph # This is wrong: invalid syntax
+                #size_hint: (1, 1)
+            Button: # red Button
+                background_normal: ''
+                background_color: 0.6, 0.15, 0.15, 1.
+                text: 'Graph'
+                on_press: root.do_action()
+#                on_touch_down: print('Graph Relative: {}'.format(args[1].pos))
+        RelativeLayout:
+            Label:
+                id: my_custom_label
+                color: 0.9, 0.4, 0, 0.8 # This works
+                text: 'My label before Graph button is pressed'
+                text_size: root.width, None
+#                on_touch_down: print('Text Relative: {}'.format(args[1].pos))
+        RelativeLayout:
+            Button:
+                background_normal: ''
+                background_color: 0.3, 0.15, 0.75, 1.
+                text: 'Blue Button'
+#                on_touch_down: print('Bluebutton Relative: {}'.format(args[1].pos))
