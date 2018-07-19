@@ -1,23 +1,58 @@
  #: import FadeTransition kivy.uix.screenmanager.FadeTransition
 
 <CustButton@Button>:
-	font_size: 32		
+	font_size: 32	
+
+<Button>:
+	font_size: 25
 		
 <Channel_1>:
 	ScreenOne:
 		name: "screen_one"
-		BoxLayout:
+		BoxLayout: #Change back to BoxLayout when the other elements are added
+			BoxLayout:
+				orientation: 'vertical'
+				pos_hint: {'left': 1,'top':1}
+				size_hint: 0.9,1
+				Image:
+					id: image
+					pos_hint: {'top':1}
+					size_hint: 1,0.9
+					canvas.before:
+						Color:
+							rgba: 0, 0, 0, 1
+						Rectangle:
+							pos: self.pos
+							size: self.size
+					source: 'C1_PKPK.jpg'
+			
+				BoxLayout:
+					#pos_hint: {'bottom':1}
+					size_hint: 1,0.1
+					Button:
+						text: "1 Week"
+					Button:
+						text: "1 Month"
+					Button:
+						text: "3 Months"
+					Button:
+						text: "6 Months"
 			Button:
-				text: "Channel 1 - Screen 1"
+				pos_hint: {'right': 1,'center_y': 0.5}
+				size_hint: 0.1,0.2
+				text: "--->"
 				on_press:
 					root.transition.direction = "left"
 					root.transition.duration = 0.5
 					root.current = 'screen_two'
+					
 	ScreenTwo:
 		name: "screen_two"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 1 - Screen 2"
+				pos_hint: {'left': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "<---"
 				on_press:
 					root.transition.direction = "right"
 					root.transition.duration = 0.5
@@ -26,18 +61,22 @@
 <Channel_2>:
 	ScreenOne:
 		name: "screen_one"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 2 - Screen 1"
+				pos_hint: {'right': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "--->"
 				on_press:
 					root.transition.direction = "left"
 					root.transition.duration = 0.5
 					root.current = 'screen_two'
 	ScreenTwo:
 		name: "screen_two"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 2 - Screen 2"
+				pos_hint: {'left': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "<---"
 				on_press:
 					root.transition.direction = "right"
 					root.transition.duration = 0.5
@@ -46,18 +85,22 @@
 <Channel_3>:
 	ScreenOne:
 		name: "screen_one"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 3 - Screen 1"
+				pos_hint: {'right': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "--->"
 				on_press:
 					root.transition.direction = "left"
 					root.transition.duration = 0.5
 					root.current = 'screen_two'
 	ScreenTwo:
 		name: "screen_two"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 3 - Screen 2"
+				pos_hint: {'left': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "<---"
 				on_press:
 					root.transition.direction = "right"
 					root.transition.duration = 0.5
@@ -66,18 +109,22 @@
 <Channel_4>:
 	ScreenOne:
 		name: "screen_one"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 4 - Screen 1"
+				pos_hint: {'right': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "--->"
 				on_press:
 					root.transition.direction = "left"
 					root.transition.duration = 0.5
 					root.current = 'screen_two'
 	ScreenTwo:
 		name: "screen_two"
-		BoxLayout:
+		FloatLayout: #Change back to BoxLayout when the other elements are added
 			Button:
-				text: "Channel 4 - Screen 2"
+				pos_hint: {'left': 1,'center_y': 0.5}
+				size_hint: (0.1, 0.2)
+				text: "<---"
 				on_press:
 					root.transition.direction = "right"
 					root.transition.duration = 0.5
@@ -87,13 +134,13 @@ Test:
 
 	canvas.before:
         Color:
-            rgba: 0, 1, 1, 1
+            rgba: 0.15, 0.15, 0.15, 1
         Rectangle:
             pos: self.pos
             size: self.size
 			
 	do_default_tab: False
-    background_color: (.5, .5, 1, 1)
+    background_color: (0.2, 0.2, 0.2, 0)
 	
 	TabbedPanelItem:
 		text: "Channel 1"
