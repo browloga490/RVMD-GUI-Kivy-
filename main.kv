@@ -6,58 +6,43 @@
 <Button>:
 	font_size: 25
 		
-<Channel_1>:
-	ScreenOne:
-		name: "screen_one"
-		BoxLayout: #Change back to BoxLayout when the other elements are added
-			BoxLayout:
-				orientation: 'vertical'
-				pos_hint: {'left': 1,'top':1}
-				size_hint: 0.9,1
-				Image:
-					id: image
-					pos_hint: {'top':1}
-					size_hint: 1,0.9
-					canvas.before:
-						Color:
-							rgba: 0, 0, 0, 1
-						Rectangle:
-							pos: self.pos
-							size: self.size
-					source: 'C1_PKPK.jpg'
-					mag_filter: 'nearest'
-			
-				BoxLayout:
-					#pos_hint: {'bottom':1}
-					size_hint: 1,0.1
-					Button:
-						text: "1 Week"
-					Button:
-						text: "1 Month"
-					Button:
-						text: "3 Months"
-					Button:
-						text: "6 Months"
+<Channel_1>:	
+	BoxLayout:
+		orientation: 'vertical'
+		pos_hint: {'left': 1,'top':1}
+		#size_hint: 1,1
+		Image:
+			id: image
+			pos_hint: {'top':1}
+			size_hint: 1,0.9
+			canvas.before:
+				Color:
+					rgba: 0, 0, 0, 1
+				Rectangle:
+					pos: self.pos
+					size: self.size
+			source: 'C1_PKPK_7.jpg'
+			mag_filter: 'nearest'
+	
+		BoxLayout:
+			#pos_hint: {'bottom':1}
+			size_hint: 1,0.1
 			Button:
-				pos_hint: {'right': 1,'center_y': 0.5}
-				size_hint: 0.1,0.2
-				text: "--->"
+				text: "1 Week"
 				on_press:
-					root.transition.direction = "left"
-					root.transition.duration = 0.5
-					root.current = 'screen_two'
-					
-	ScreenTwo:
-		name: "screen_two"
-		FloatLayout: #Change back to BoxLayout when the other elements are added
+					image.source = 'C1_PKPK_7.jpg'
 			Button:
-				pos_hint: {'left': 1,'center_y': 0.5}
-				size_hint: (0.1, 0.2)
-				text: "<---"
+				text: "1 Month"
 				on_press:
-					root.transition.direction = "right"
-					root.transition.duration = 0.5
-					root.current = 'screen_one'
+					image.source = 'C1_PKPK_31.jpg'
+			Button:
+				text: "3 Months"
+				on_press:
+					image.source = 'C1_PKPK_93.jpg'
+			Button:
+				text: "6 Months"
+				on_press:
+					image.source = 'C1_PKPK_186.jpg'
 					
 <Channel_2>:
 	ScreenOne:
@@ -131,7 +116,7 @@
 					root.transition.duration = 0.5
 					root.current = 'screen_one'
 					
-Test:
+Channel_Tabs:
 
 	canvas.before:
         Color:
@@ -140,17 +125,65 @@ Test:
             pos: self.pos
             size: self.size
 			
-	do_default_tab: False
     background_color: (0.2, 0.2, 0.2, 0)
 	
 	TabbedPanelItem:
 		text: "Channel 1"
 		
-		BoxLayout:
-			orientation: "vertical"
-			spacing: 20
+		Graph_Tabs:	
+			background_color: (0.2, 0.2, 0.2, 0)
 			
-			Channel_1:
+			TabbedPanelItem:
+				text: "Average"
+				
+				BoxLayout:
+					orientation: 'vertical'
+					pos_hint: {'left': 1,'top':1}
+					#size_hint: 1,1
+					Image:
+						id: image
+						pos_hint: {'top':1}
+						size_hint: 1,0.9
+						canvas.before:
+							Color:
+								rgba: 0, 0, 0, 1
+							Rectangle:
+								pos: self.pos
+								size: self.size
+						source: 'C1_PKPK_7.jpg'
+						mag_filter: 'nearest'
+				
+					BoxLayout:
+						#pos_hint: {'bottom':1}
+						size_hint: 1,0.1
+						Button:
+							text: "1 Week"
+							on_press:
+								image.source = 'C1_PKPK_7.jpg'
+						Button:
+							text: "1 Month"
+							on_press:
+								image.source = 'C1_PKPK_31.jpg'
+						Button:
+							text: "3 Months"
+							on_press:
+								image.source = 'C1_PKPK_93.jpg'
+						Button:
+							text: "6 Months"
+							on_press:
+								image.source = 'C1_PKPK_186.jpg'
+								
+			TabbedPanelItem:
+				text: "Looseness"
+				
+			TabbedPanelItem:
+				text: "Misalignment"
+				
+			TabbedPanelItem:
+				text: "Bearing"
+				
+			TabbedPanelItem:
+				text: "Gears"
 
 	TabbedPanelItem:
 		text: "Channel 2"

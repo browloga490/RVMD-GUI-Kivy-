@@ -19,7 +19,7 @@ class ScreenOne(Screen):
 class ScreenTwo(Screen):
     pass
 
-class Channel_1(ScreenManager):
+class Channel_1(Widget):
     pass
 
 class Channel_2(ScreenManager):
@@ -37,8 +37,15 @@ class CalcGridLayout(GridLayout):
 class OptGridLayout(GridLayout):
     pass
 
-class Test(TabbedPanel):
+class Graph_Tabs(TabbedPanel):
 
+    do_default_tab = False
+    tab_pos = 'top_mid'
+    tab_width = Window.width / 5
+
+class Channel_Tabs(TabbedPanel):
+
+    do_default_tab = False
     tab_pos = 'top_mid'
     tab_width = Window.width / 4
   
